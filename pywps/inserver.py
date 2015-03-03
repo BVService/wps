@@ -73,7 +73,7 @@ while (i<1):
         # Delete current line in the log file (the first one)
         #os.system("sed -i '1,1d' "+logfile)
         # -------------------------------    
-        # II.B - Enable/disable simulators in model.fluidx   
+        # II.B - Enable/disable simulators in monitoring.fluidx   
         # -------------------------------          
         # Edit "Parcelles" line in monitoringfluix
         os.system("sed -i 's#\"geoserie.FinalSU.vars\" value=\"\"#\"geoserie.FinalSU.vars\" value=\"%s\"#g' monitoring.fluidx" % (edited_monitoringfluidx_su))
