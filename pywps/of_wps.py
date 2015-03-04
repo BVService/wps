@@ -4,7 +4,7 @@ import time
 import subprocess                  
 class Process(WPSProcess):
 ####################################################################################
-#This script is an asynchronous WPS which execute a modeling from OpenFLUID software.
+#The script is an asynchronous WPS which execute a modeling from OpenFLUID software.
 #For this, the script fills a log file on the server from the parameters selected by 
 #the user in the window addon of the MapFishApp viewer. This log file will then be 
 #read by a daemon on the server to configure and execute the OpenFLUID modeling software.
@@ -14,8 +14,8 @@ class Process(WPSProcess):
 
         # Process initialization
         WPSProcess.__init__(self,
-            identifier = "wps_generic",
-            title="wps_generic",
+            identifier = "bourdic_v2",
+            title="bourdic_v2",
             abstract="""WPS pour le Bourdic""",
             version = "1.0",
             storeSupported = True,
@@ -25,7 +25,7 @@ class Process(WPSProcess):
 
         self.input1OnlyInPython = self.addLiteralInput(identifier="L_input_param1",
                     title = "Email (ex jean.dupont@free.fr)",
-                    type = type("")) 
+                    type = type("")) # Integer by default. For string add "typestring"
 
         #self.input1OnlyInPython = self.addLiteralInput(identifier = "L_input_param1", # input_param1, input_url1
                     #title = "Input 1 (parametre litteral)",
@@ -174,7 +174,7 @@ class Process(WPSProcess):
 
         self.input16OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox1",
                     title = "Nombre de parcelles connectees en amont ",
-                    type = type("")) # For string add "typestring"
+                    type = type("")) 
 
         self.input17OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox2",
                     title = "Surface totale des parcelles connectees en amont (m2) ",
@@ -182,11 +182,11 @@ class Process(WPSProcess):
 
         self.input18OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox3",
                     title = "Volume total ruissele (m3) ",
-                    type = type("")) 
+                    type = type(""))
 
         self.input19OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox4",
                     title = "Hauteur infiltree totale (m) ",
-                    type = type("")) 
+                    type = type(""))
 
         self.input20OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox5",
                     title = "Debit maximum (m3/s) ",
@@ -214,7 +214,7 @@ class Process(WPSProcess):
                     
         self.input26OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox11",
                     title = "Volume total deborde (m3)  ",
-                    type = type("")) 
+                    type = type(""))
                     
 # Output
 
@@ -395,6 +395,6 @@ class Process(WPSProcess):
             fichier.close()
 
         #Output
-        self.output1OnlyInPython.setValue("End of simulation") #Return "End of simulation"
+        self.output1OnlyInPython.setValue("End of simulation") #renvoit un name "End of simulation"
 
         return
