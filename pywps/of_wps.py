@@ -4,18 +4,18 @@ import time
 import subprocess                  
 class Process(WPSProcess):
 ####################################################################################
-#Ce script recupere un shapefile et un mail fourni par le client (fromqgis), 
-#commande une modelisation openfluid sur le serveur (inserver),
-#realise sur le serveur la jointure entre le shapefile fourni et le csv genere par la modelisation (join),
-#retourne le shapefile+csv par mail a l'utilisateur (inserver)
+#The script is an asynchronous WPS which execute a modeling from OpenFLUID software.
+#For this, the script fills a log file on the server from the parameters selected by 
+#the user in the window addon of the MapFishApp viewer. This log file will then be 
+#read by a daemon on the server to configure and execute the OpenFLUID modeling software.
 ####################################################################################
 
     def __init__(self):
 
         # Process initialization
         WPSProcess.__init__(self,
-            identifier = "bourdic_v2",
-            title="bourdic_v2",
+            identifier = "wps_generic",
+            title="wps_generic",
             abstract="""WPS pour le Bourdic""",
             version = "1.0",
             storeSupported = True,
@@ -25,13 +25,13 @@ class Process(WPSProcess):
 
         self.input1OnlyInPython = self.addLiteralInput(identifier="L_input_param1",
                     title = "Email (ex jean.dupont@free.fr)",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) 
 
-        """self.input1OnlyInPython = self.addLiteralInput(identifier = "L_input_param1", # input_param1, input_url1
-                    title = "Input 1 (parametre litteral)",
-                    abstract = "Field of type INTEGER specifying a time delay in seconds.",
-                    type = type(2))
-                    #(1,2,3,(5,9),10,"a",("d","g")))"""
+        #self.input1OnlyInPython = self.addLiteralInput(identifier = "L_input_param1", # input_param1, input_url1
+                    #title = "Input 1 (parametre litteral)",
+                    #abstract = "Field of type INTEGER specifying a time delay in seconds.",
+                    #type = type(2))
+                    #(1,2,3,(5,9),10,"a",("d","g")))
 
         #self.input2OnlyInPython = self.addLiteralInput(identifier = "L_input_param2", # input_param1, input_url1
                     #title = "Input 2 (parametre litteral)",
@@ -174,47 +174,47 @@ class Process(WPSProcess):
 
         self.input16OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox1",
                     title = "Nombre de parcelles connectees en amont ",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) # For string add "typestring"
 
         self.input17OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox2",
                     title = "Surface totale des parcelles connectees en amont (m2) ",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) 
 
         self.input18OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox3",
                     title = "Volume total ruissele (m3) ",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) 
 
         self.input19OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox4",
                     title = "Hauteur infiltree totale (m) ",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) 
 
         self.input20OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox5",
                     title = "Debit maximum (m3/s) ",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) 
                     
         self.input21OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox6",
                     title = "Volume contributif de chaque parcelle au reseau (m3) ",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) 
 
         self.input22OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox7",
                     title = "Nombre de fosse connectes en amont ",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) 
                     
         self.input23OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox8",
                     title = "Longueur totale de reseau en amont (m) ",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) 
 
         self.input24OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox9",
                     title = "Volume total transfere (m3) ",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) 
                     
         self.input25OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox10",
                     title = "Hauteur maximum debordee (m) ",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) 
                     
         self.input26OnlyInPython = self.addLiteralInput(identifier="L_input_checkbox11",
                     title = "Volume total deborde (m3)  ",
-                    type = type("")) # Type par defaut en integer, pour string il faut ajouter typestring
+                    type = type("")) 
                     
 # Output
 
@@ -395,6 +395,6 @@ class Process(WPSProcess):
             fichier.close()
 
         #Output
-        self.output1OnlyInPython.setValue("End of simulation") #renvoit un name "End of simulation"
+        self.output1OnlyInPython.setValue("End of simulation") #Return "End of simulation"
 
         return
