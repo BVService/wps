@@ -4,7 +4,7 @@ import time
 import subprocess                  
 class Process(WPSProcess):
 ####################################################################################
-#The script is an asynchronous WPS which execute a modeling from OpenFLUID software.
+#This script is an asynchronous WPS which execute a modeling from OpenFLUID software.
 #For this, the script fills a log file on the server from the parameters selected by 
 #the user in the window addon of the MapFishApp viewer. This log file will then be 
 #read by a daemon on the server to configure and execute the OpenFLUID modeling software.
