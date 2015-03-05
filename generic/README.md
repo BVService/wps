@@ -29,8 +29,7 @@ Which represents the following information :
 model.fluidx
 ===============
 
-Model.fluidx is a configuration file for the modeling performed with the OpenFLUID software. 
-The file contains a list of simulators that can be activated or deactivated by adding 1 or 0 to "Enable".
+Model.fluidx is a configuration file for the modeling performed with the OpenFLUID software. The file contains a list of simulators that can be activated  by inserver.py by replacing `enable = "0"` to `enable = "1"`. Here is an excerpt:
 Here is an extract : 
 ```
 <simulator ID="water.surf.max-outflow-su" enabled="1">
