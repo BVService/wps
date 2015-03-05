@@ -29,7 +29,8 @@ Which represents the following information :
 model.fluidx
 ===============
 
-Model.fluidx is a configuration file for the modeling performed with the OpenFLUID software.
+Model.fluidx is a configuration file for the modeling performed with the OpenFLUID software. 
+The file contains a list of simulators that can be activated or deactivated by adding 1 or 0 to "Enable".
 Here is an extract : 
 ```
 <simulator ID="water.surf.max-outflow-su" enabled="1">
@@ -39,4 +40,4 @@ Here is an extract :
 <simulator ID="water.surf.totalvolumeoverflow-rs" enabled="1">
 </simulator> 
 ```
-The file contains a list of simulators that can be activated or deactivated by adding 1 or 0 to "Enable". The simulators are activated when simulators contained in the column "Name of the simulators" of railing.txt and those in model.fluidx match.
+The simulators are activated when simulators contained in the column "Name of the simulators" of railing.txt and those in model.fluidx match.
