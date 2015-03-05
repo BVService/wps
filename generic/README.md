@@ -40,4 +40,4 @@ Here is an extract :
 <simulator ID="water.surf.totalvolumeoverflow-rs" enabled="1">
 </simulator> 
 ```
-The simulators are activated by inserver.py when simulators contained in the column "Name of the simulators" of railing.txt and those in model.fluidx match.
+The simulators are activated by **inserver.py** when simulators contained in the column "Name of the simulators" of **railing.txt** and those in **model.fluidx** match.
