@@ -5,6 +5,9 @@ inserver.py is a daemon which check if the log file (**railing.txt**) is empty o
 If the log file is not empty, the daemon parse the first line. 
 Collected informations are used to configure and execute the OpenFLUID modeling software.
 
+railing.txt
+===============
+
 Each line of railing.txt contains the following information separated by semicolons:
 - An identifier
 - The user's email address
