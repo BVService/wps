@@ -18,16 +18,8 @@ Here is an extract of railing.txt:
 ```
 
 Which represents :
-"""
-| identifier  |  user's email  | Name of the simulators      | plot indicators | riversystem indicators  |
-| ------------| -------------- | ----------------------------|------------------------- | --------------- 
-|             |                |  stat.upper.su,             | stat.upper.number=>UpNum,         
-|             |                |  water.surf.totalvolume-su, | water.surf.V.total-su=>VolTot,
-|       1     | mail@gmail.com |  water.surf.max-outflow-su, | water.surf.Q.maxdownstream-su=>QMax
-|             |                |  stat.upper.rs,             |
-|             |                |  water.surf.overflow-rs     |
-"""
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+
+| identifier | user's email   | Name of the simulators                                                                                 | plot indicators                                                                             | riversystem indicators                                      |
+|------------|----------------|--------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| 1          | mail@gmail.com | stat.upper.su,water.surf.totalvolume-su,water.surf.max-outflow-su,stat.upper.rs,water.surf.overflow-rs | ;stat.upper.number=>UpNum,water.surf.V.total-su=>VolTot,water.surf.Q.maxdownstream-su=>QMax | stat.upper.number=>UpNum,water.surf.H.overflow-rs=>HeighMax |
+
