@@ -32,12 +32,11 @@ model.fluidx
 Model.fluidx is a configuration file for the modeling performed with the OpenFLUID software.
 Here is an extract : 
 ```
-<simulator ID="land.surf.representation.geomhydas" enabled="1">
-<param name="GraphAnalysis" value="true"/>
-<param name="FluidxFile" value="true"/>
-<param name="LineLayers" value="reachs=/GeoData/bourdic_rs.shp"/>
-<param name="PolygonLayers" value="fields=/GeoData/bourdic_su.shp"/>
-<param name="RasterLayers" value="dem=/GeoData/bourdic_dem.tif"/>
+<simulator ID="water.surf.max-outflow-su" enabled="1">
 </simulator>
+<simulator ID="water.surf.overflow-rs" enabled="1">
+</simulator>
+<simulator ID="water.surf.totalvolumeoverflow-rs" enabled="1">
+</simulator> 
 ```
 The file contains a list of simulators that can be activated or deactivated by adding 1 or 0 to Enable.
