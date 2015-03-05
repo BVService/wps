@@ -3,9 +3,9 @@ import time
 import re
 
 i=0 
-logfile = "/var/www/trash03_02/testforsed.txt"
-modelFluidx_file = "/var/www/trash03_02/model.fluidx"
-monitoringFluidx_file = "/var/www/trash03_02/monitoring.fluidx"
+logfile = "/path/to/logfile.txt"
+modelFluidx_file = "/path/to/model.fluidx"
+monitoringFluidx_file = "/path/to/monitoring.fluidx"
 while (i<1):
     # Check empty file
     if os.stat(logfile).st_size ==  0: 
