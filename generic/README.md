@@ -62,4 +62,4 @@ Here is an extract :
 </observer>
 ```
  
-The calculation lines of monitoring;fluidx are modified by inserver.py when the column "plot indicators" and/or "riversystem indicators" of railing.txt are not empty.
+The calculation lines of **monitoring.fluidx** are modified by inserver.py when the column "plot indicators" and/or "riversystem indicators" of **railing.txt** is/are not empty.
