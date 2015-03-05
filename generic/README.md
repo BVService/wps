@@ -8,7 +8,7 @@ Collected informations are used to configure and execute the OpenFLUID modeling 
 Each line of railing.txt contains the following information separated by semicolons:
 - An identifier
 - The user's email address
-- The name simulators that will be activated in the model.fluidx file (*Enable = 0 becomes Enable = 1*)
+- The name of the simulators that will be activated in the model.fluidx file (*Enable = 0 becomes Enable = 1*)
 - The name of the plot indicators that will be used in the monitoring.fluidx
 - The name of the riversystem indicators that will be used in the monitoring.fluidx
 
@@ -16,3 +16,14 @@ Here is an extract of railing.txt:
 ```
 1;mail@gmail.com;stat.upper.su,water.surf.totalvolume-su,water.surf.max-outflow-su,stat.upper.rs,water.surf.overflow-rs;stat.upper.number=>UpNum,water.surf.V.total-su=>VolTot,water.surf.Q.maxdownstream-su=>QMax;stat.upper.number=>UpNum,water.surf.H.overflow-rs=>HeighMax;
 ```
+
+Which represents :
+"""
+| identifier  |  user's email  | Name of the simulators      | plot indicators | riversystem indicators  |
+| ------------| -------------- | ----------------------------|------------------------- | --------------- 
+|             |                |  stat.upper.su,             | stat.upper.number=>UpNum,           l stat.upper.number=>UpNum
+|             |                |  water.surf.totalvolume-su, | water.surf.V.total-su=>VolTot,
+|       1     | mail@gmail.com |  water.surf.max-outflow-su, | water.surf.Q.maxdownstream-su=>QMax
+|             |                |  stat.upper.rs,             |
+|             |                |  water.surf.overflow-rs     |
+"""
