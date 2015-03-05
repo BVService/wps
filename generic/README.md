@@ -45,6 +45,7 @@ monitoring.fluidx
 
 Monitoring.fluidx is a configuration file for the modeling performed with the OpenFLUID software. 
 The file contains a list of observer that can be modified by **inserver.py**. The calculations for the plots are located into the line `<param name="geoserie.FinalSU.vars" value="">` while the calculations for the water system are located into the line `<param name="geoserie.FinalRS.vars" value="">`.
+
 Here is an extract : 
 ```
 <observer ID="export.vars.files.geovector" enabled="1">
