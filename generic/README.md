@@ -41,3 +41,24 @@ Here is an extract :
 </simulator> 
 ```
 The simulators are activated by **inserver.py** when simulators contained in the column "Name of the simulators" of **railing.txt** and those in **model.fluidx** match.
+
+monitoring.fluidx
+===============
+
+Monitoring.fluidx is a configuration file for the modeling performed with the OpenFLUID software. 
+The file contains a list of observer. The calculations for the plots will be inserted into the line <param name="geoserie.FinalSU.vars" value=""> while the calculations for the water system will be inserted into the line <param name="geoserie.FinalRS.vars" value="">.
+Here is an extract : 
+```
+<observer ID="export.vars.files.geovector" enabled="1">
+<param name="format" value="ESRI Shapefile" />
+<param name="outsubdir" value="outshapefile" />
+<param name="geoserie.FinalSU.sourcefile" value="../OUT/shapefiles/SU_topology.shp" />
+<param name="geoserie.FinalSU.vars" value="stat.upper.number=>UpNum;water.surf.V.total-su=>VolTot;water.surf.Q.maxdownstream-su=>QMax" />
+<param name="geoserie.FinalSU.unitsclass" value="SU" />
+<param name="geoserie.FinalSU.when" value="final" />
+<param name="geoserie.FinalRS.sourcefile" value="../OUT/shapefiles/RS_topology.shp" />
+<param name="geoserie.FinalRS.vars" value="stat.upper.number=>UpNum;water.surf.H.overflow-rs=>HeighMax" />
+<param name="geoserie.FinalRS.unitsclass" value="RS" />
+<param name="geoserie.FinalRS.when" value="final" />
+</observer>
+```
