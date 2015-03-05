@@ -8,7 +8,7 @@ Collected informations are used to configure and execute the OpenFLUID modeling 
 railing.txt
 ===============
 
-Each line of railing.txt contains the following information separated by semicolons:
+Each line of railing.txt contains the following informations separated by semicolons:
 - An identifier
 - The user's email address
 - The name of the simulators that will be activated in the model.fluidx file (*Enable = 0 becomes Enable = 1*)
