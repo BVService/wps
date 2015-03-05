@@ -61,3 +61,5 @@ Here is an extract :
 <param name="geoserie.FinalRS.when" value="final" />
 </observer>
 ```
+ 
+The calculation lines of monitoring;fluidx are modified by inserver.py when the column "plot indicators" and/or "riversystem indicators" of railing.txt are not empty.
