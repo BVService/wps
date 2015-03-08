@@ -3,26 +3,33 @@ import time
 import re
 
 i=0 
-logfile = "/path/to/logfile.txt"
-modelFluidx_file = "/path/to/model.fluidx"
-monitoringFluidx_file = "/path/to/monitoring.fluidx"
+logfile = "/var/www/trash03_02/testforsed.txt"
+openfluidProject_folder = "/home/openfluid202-from-git/lib-from-michael/BourdicOF" #Path without / in the end
 while (i<1):
     # Check empty file
     if os.stat(logfile).st_size ==  0: 
         time.sleep(1)
     else :
-        i=1        
+        i=1
         #################################
-        # PART 1 : Edit Openfluid files
+        # PART 0 : Create new Openfluid files
+        #################################
+        # Read first line of the log
+        first = open(logfile).readline()
+        # Parse first line of the log file
+        parse_list = first.split(";")
+        # Get id from the first line of the log
+        parse_logid = parse_list[0]
+        # Create Openfluid files with custom name
+        os.system("cp -R "+openfluidProject_folder+ " "+openfluidProject_folder+parse_logid)
+        
+        #################################
+        # PART 1 : Edit created Openfluid files
         #################################
         # I - List activated simulators 
         # -------------------------------
         # I.A - List checked simulators from Mapfish client
         # -------------------------------
-        # Read first line
-        first = open(logfile).readline()
-        # Parse first line
-        parse_list = first.split(";")
         # Parse simulators
         parse_simulators = parse_list[2].split(",")
         #print parse_simulators
@@ -57,7 +64,7 @@ while (i<1):
         # Initializes the editor variable  
         edited_modelfluidx = ""
         # Reads each line of the file
-        for line in open(modelFluidx_file):
+        for line in open(openfluidProject_folder+parse_logid+"/IN/model.fluidx"):
             # If the line simulator corresponds to the deactivated simulator
             if any(s in line for s in parse_simulators):
                 # Replace 0 to 1 and add the editor variable
@@ -67,18 +74,18 @@ while (i<1):
                 # Add the editor variable
                 edited_modelfluidx = edited_modelfluidx + line
         # Rewrite the file with the editor variable                
-        f = open(modelFluidx_file, 'w')
+        f = open(openfluidProject_folder+parse_logid+"/IN/model.fluidx", 'w')
         f.write(edited_modelfluidx)
         f.close()
         # Delete current line in the log file (the first one)
         #os.system("sed -i '1,1d' "+logfile)
         # -------------------------------    
-        # II.B - Enable/disable simulators in monitoring.fluidx   
+        # II.B - Enable/disable simulators in model.fluidx   
         # -------------------------------          
         # Edit "Parcelles" line in monitoringfluix
-        os.system("sed -i 's#\"geoserie.FinalSU.vars\" value=\"\"#\"geoserie.FinalSU.vars\" value=\"%s\"#g' monitoring.fluidx" % (edited_monitoringfluidx_su))
+        os.system("sed -i 's#\"geoserie.FinalSU.vars\" value=\"\"#\"geoserie.FinalSU.vars\" value=\"%s\"#g' %s" % (edited_monitoringfluidx_su,openfluidProject_folder+parse_logid+"/IN/monitoring.fluidx"))
         # Edit "Reseau hydro" line in monitoringfluix
-        os.system("sed -i 's#\"geoserie.FinalRS.vars\" value=\"\"#\"geoserie.FinalRS.vars\" value=\"%s\"#g' monitoring.fluidx" % (edited_monitoringfluidx_rs))
+        os.system("sed -i 's#\"geoserie.FinalRS.vars\" value=\"\"#\"geoserie.FinalRS.vars\" value=\"%s\"#g' %s" % (edited_monitoringfluidx_su,openfluidProject_folder+parse_logid+"/IN/monitoring.fluidx"))
         # ------------------------------- 
         # Delete current line in the log file (the first one)
         #os.system("sed -i '1,1d' "+logfile)
