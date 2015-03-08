@@ -3,8 +3,8 @@ import time
 import re
 
 i=0 
-logfile = "/var/www/trash03_02/testforsed.txt"
-openfluidProject_folder = "/home/openfluid202-from-git/lib-from-michael/BourdicOF" #Path without / in the end
+logfile = "/path/to/railing.txt"
+openfluidProject_folder = "path/to/openfluid/project/folder" #Path without / in the end
 while (i<1):
     # Check empty file
     if os.stat(logfile).st_size ==  0: 
