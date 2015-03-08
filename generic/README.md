@@ -2,7 +2,7 @@ inserver.py
 ===============
 
 inserver.py is a daemon which check if the log file (**railing.txt**) is empty or not.
-If the log file is not empty, the daemon parse the first line. 
+If the log file is not empty, the daemon parses the first line. 
 Collected informations are used to create a new openfluid project with custom **model.fluidx** and **monitoring.fluidx**, then execute the OpenFLUID modeling software.
 
 railing.txt
@@ -20,7 +20,7 @@ Here is an extract of railing.txt:
 1;me@mymail.com;stat.upper.su,water.surf.totalvolume-su,water.surf.max-outflow-su,stat.upper.rs,water.surf.overflow-rs;stat.upper.number=>UpNum,water.surf.V.total-su=>VolTot,water.surf.Q.maxdownstream-su=>QMax;stat.upper.number=>UpNum,water.surf.H.overflow-rs=>HeighMax;
 ```
 
-Which represents the following information : 
+Which represents the following informations : 
 
 | identifier | user's email  | Name of the simulators                                                                                 | plot indicators                                                                            | riversystem indicators                                      |
 |------------|---------------|--------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|-------------------------------------------------------------|
